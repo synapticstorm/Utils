@@ -1,0 +1,56 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'maven'
+
+group = 'com.github.synapticstorm'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+sourceSets {
+    test {
+        resources {
+            srcDir "test"
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+idea {
+    module { excludeDirs = [file(".idea")] }
+}
+
+
+mainClassName = ''
+dependencies {
+    apply plugin: 'java'
+    //our deps
+    implementation 'com.github.synapticstorm:DES:1.0.3'
+    testCompile 'com.github.synapticstorm:DES:1.0.3'
+    implementation 'com.github.synapticstorm:Space:1.0.0'
+    //3rd party deps
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.5'
+    testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.4'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    compile group: 'org.codehaus.janino', name: 'janino', version: '3.1.0' //code-generator
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+    compile('javax.activation:activation:1.1')
+    compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.4.0-b180830.0438'
+    compile 'org.uncommons.maths:uncommons-maths:1.2.2a'
+    implementation group: 'org.jetbrains', name: 'annotations', version: '20.1.0'
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+    compile group: 'net.sf.trove4j', name: 'trove4j', version: '3.0.3'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile 'com.github.allbegray:slack-api:v1.3.0.RELEASE'
+    compile group: 'args4j', name: 'args4j', version: '2.33'
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    compile group: 'org.antlr', name: 'antlr4-runtime', version: '4.7.1'
+    compile group: 'org.knowm.xchart', name: 'xchart', version: '3.5.2'
+    compile group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
+}
