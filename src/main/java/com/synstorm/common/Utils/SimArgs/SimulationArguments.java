@@ -54,6 +54,9 @@ public enum SimulationArguments {
 
     @Option(name="-mechRange", usage = "Range for mechanisms duration delta")
     private double mechRange = 0.1;
+
+    @Option(name="-slackToken", usage = "Slack: token")
+    private String slackToken = "";
 //
 //    @Option(name="-teachSeedNum", usage = "Seed number for teacher from corresponding section")
 //    private int teacherSeedNum = 0;
@@ -149,6 +152,10 @@ public enum SimulationArguments {
 
     public long getTicks() {
         return ticks;
+    }
+
+    public String getSlackToken() {
+        return slackToken;
     }
 
     //

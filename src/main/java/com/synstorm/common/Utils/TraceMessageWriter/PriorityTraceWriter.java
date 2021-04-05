@@ -4,6 +4,7 @@ import allbegray.slack.SlackClientFactory;
 import allbegray.slack.webapi.SlackWebApiClient;
 import com.synstorm.common.Utils.Annotations.Classes.Model_v0;
 import com.synstorm.common.Utils.Annotations.Classes.ProductionLegacy;
+import com.synstorm.common.Utils.SimArgs.SimulationArguments;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedWriter;
@@ -173,7 +174,7 @@ public class PriorityTraceWriter {
     //region Private Methods
     private static int tryConnectToSlack(int tries) {
         try {
-            webApiClient = SlackClientFactory.createWebApiClient("xoxb-29794513911-win0RJjac1fhF0updd6gopFI");
+            webApiClient = SlackClientFactory.createWebApiClient(SimulationArguments.INSTANCE.getSlackToken()); //удалил токен отсюда
             webApiClient.auth();
             webApiClient.getChannelList().stream().forEach(channel -> {
                 if (channel.getName().equals("modeling_status_full"))
