@@ -31,23 +31,11 @@ public enum SimulationArguments {
     @Option(name="-enableLogging", usage = "Telemetry: Enable remote logging to Elastic Search")
     private boolean enableLogging = false;
 
-    @Option(name="-elasticHttpsEndpoint", usage = "Telemetry: Set HTTPS endpoint for cloud logging")
-    private String elasticHttpsEndpoint = "";
-
-    @Option(name="-elasticHttpsUser", usage = "Telemetry: Set HTTPS user for cloud logging")
-    private String elasticHttpsUser = "";
-
-    @Option(name="-elasticHttpsPassword", usage = "Telemetry: Set HTTPS password for cloud logging")
-    private String elasticHttpsPassword = "";
-
-    @Option(name="-elasticAddress", usage = "Telemetry: Elastic Search address")
-    private String elasticAddress = "";
-
-    @Option(name="-elasticPort", usage = "Telemetry: Elastic Search port")
-    private int elasticPort = 9200;
-
     @Option(name="-logConditions", usage = "Telemetry: Enable conditions execution logging")
     private boolean logConditions = false;
+
+    @Option(name="-logResponses", usage = "Telemetry: Enable conditions execution logging")
+    private String logResponses = "*";
 
     @Option(name="-mechSeed", usage = "Seed number for mechanisms duration delta")
     private long mechSeed = 32167L;
@@ -102,9 +90,6 @@ public enum SimulationArguments {
     //endregion
 
     //region Getters and Setters
-//    public String getProcessor() {
-//        return processor;
-//    }
 
     public String getConfigPath() {
         return configPath;
@@ -118,28 +103,12 @@ public enum SimulationArguments {
         return enableLogging;
     }
 
-    public String getElasticHttpsEndpoint() {
-        return elasticHttpsEndpoint;
-    }
-
-    public String getElasticHttpsUser() {
-        return elasticHttpsUser;
-    }
-
-    public String getElasticHttpsPassword() {
-        return elasticHttpsPassword;
-    }
-
-    public String getElasticAddress() {
-        return elasticAddress;
-    }
-
-    public int getElasticPort() {
-        return elasticPort;
-    }
-
     public boolean isLogConditions() {
         return logConditions;
+    }
+
+    public String getLogResponses() {
+        return logResponses;
     }
 
     public long getMechSeed() {
@@ -157,52 +126,6 @@ public enum SimulationArguments {
     public String getSlackToken() {
         return slackToken;
     }
-
-    //
-//    public int getTeacherSeedNum() {
-//        return teacherSeedNum;
-//    }
-//
-//    public int getEvoSeedNum() {
-//        return evoSeedNum;
-//    }
-//
-//    public boolean isSlackShort() {
-//        return slackShort;
-//    }
-//
-//    public boolean isSlackFull() {
-//        return slackFull;
-//    }
-//
-//    public boolean isUseHungryGeneAlgorithm() {
-//        return useHungryGeneAlgorithm;
-//    }
-//
-//    public boolean isRandomIndividualSeeds() {
-//        return randomIndividualSeeds;
-//    }
-//
-//    public boolean isRandomTeacherSeeds() {
-//        return randomTeacherSeeds;
-//    }
-//
-//    public int getInitialMutations() {
-//        return initialMutations;
-//    }
-//
-//    public int getAllPopulationMutations() {
-//        return allPopulationMutations;
-//    }
-//
-//    public String getStatisticExporters() { return statisticExporters; }
-//
-//    public boolean isHasGenes() { return hasGenes != 0; }
-//
-//    @Contract(pure = true)
-//    public boolean isSlack() {
-//        return slackShort || slackFull;
-//    }
 
     public int getUpdateFrequency() {
         return updateFrequency;
