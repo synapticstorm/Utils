@@ -28,6 +28,9 @@ public enum SimulationArguments {
     @Option(name="-ticks", usage = "Total duration of the simulation")
     private long ticks = 10000L;
 
+    @Option(name="-saveGenerated", usage = "Configuration: Save generated file into results")
+    private boolean saveGenerated = false;
+
     @Option(name="-enableLogging", usage = "Telemetry: Enable remote logging to Elastic Search")
     private boolean enableLogging = false;
 
@@ -93,6 +96,10 @@ public enum SimulationArguments {
 
     public String getConfigPath() {
         return configPath;
+    }
+
+    public boolean isSaveGenerated() {
+        return saveGenerated;
     }
 
     public int getLogLevel() {
